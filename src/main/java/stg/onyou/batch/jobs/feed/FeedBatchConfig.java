@@ -25,16 +25,16 @@ public class FeedBatchConfig {
     private FeedWeightService feedWeightService;
 
     @Bean
-    public Job myJob() {
-        return jobBuilderFactory.get("myJob")
+    public Job feedWeightJob() {
+        return jobBuilderFactory.get("feedWeightJob")
                 .listener(new JobListener())
-                .start(myStep())
+                .start(feedWeightStep())
                 .build();
     }
 
     @Bean
-    public Step myStep() {
-        return stepBuilderFactory.get("myStep")
+    public Step feedWeightStep() {
+        return stepBuilderFactory.get("feedWeightStep")
                 .listener(new StepListener())
                 .tasklet(feedWeightTasklet)
                 .build();
