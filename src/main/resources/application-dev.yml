@@ -1,6 +1,3 @@
-spring:
-  profiles:
-    active: mysql
 #  batch:
 #    job:
 #      enabled: false
@@ -10,11 +7,7 @@ jasypt:
   encryptor:
     bean: OnyouBatchEncryptor
 
----
 spring:
-  config:
-    activate:
-      on-profile: mysql
   datasource:
       url: jdbc:mysql://onyou.ccnmi4nbea4z.ap-northeast-2.rds.amazonaws.com:3306/onyou-dev?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
       username: onyou
