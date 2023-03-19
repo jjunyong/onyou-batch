@@ -1,4 +1,4 @@
-package stg.onyou.batch;
+package stg.onyou.batch.jobs.feed;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.*;
@@ -11,9 +11,11 @@ import stg.onyou.batch.common.StepListener;
 import stg.onyou.batch.jobs.feed.FeedWeightService;
 import stg.onyou.batch.jobs.feed.FeedWeightTasklet;
 
+import java.time.LocalDateTime;
+
 @RequiredArgsConstructor
 @Configuration
-public class BatchConfig {
+public class FeedBatchConfig {
 
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;

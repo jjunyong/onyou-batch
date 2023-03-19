@@ -1,25 +1,14 @@
 spring:
   profiles:
-    active: local
-  batch:
-    job:
+    active: mysql
+#  batch:
+#    job:
 #      enabled: false
-      names: ${job.name:NONE}
+#      names: myJobs
 
----
-spring:
-  config:
-    activate:
-      on-profile: local
-  datasource:
-    hikari:
-      jdbc-url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-      username: sa
-      password:
-      driver-class-name: org.h2.Driver
-  batch:
-    jdbc:
-      initialize-schema: embedded
+jasypt:
+  encryptor:
+    bean: OnyouBatchEncryptor
 
 ---
 spring:
@@ -27,11 +16,11 @@ spring:
     activate:
       on-profile: mysql
   datasource:
-    hikari:
-      jdbc-url: jdbc:mysql://localhost:3306/springbatch?useUnicode=true&characterEncoding=utf8
-      username: root
-      password: pass
-      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://onyou.ccnmi4nbea4z.ap-northeast-2.rds.amazonaws.com:3306/onyou-dev?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
+      username: onyou
+      password: ENC(uFp/gDGtH3l24RVEeK2/bTTzJ5k+hBvK)
+      driver-class-name: com.mysql.cj.jdbc.Driver
   batch:
     jdbc:
       initialize-schema: always
+

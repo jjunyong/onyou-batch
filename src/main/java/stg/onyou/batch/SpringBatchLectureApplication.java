@@ -1,4 +1,4 @@
-package io.springbatch.springbatchlecture;
+package stg.onyou.batch;
 
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.boot.SpringApplication;
