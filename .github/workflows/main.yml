@@ -33,7 +33,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_JJUNYONG_ONYOU }}
      -
-        name: Docker Build and push
+        name: Docker Build & Push
         run: |
           docker build -t onyou-batch .
           docker tag onyou-batch ${{ secrets.DOCKER_USERNAME }}/onyou-batch:${GITHUB_SHA::7}
