@@ -3,17 +3,29 @@
 #      enabled: false
 #      names: myJobs
 
+#jasypt
 jasypt:
   encryptor:
     bean: OnyouBatchEncryptor
 
 spring:
+  #DataSource
   datasource:
-      url: jdbc:mysql://onyou.ccnmi4nbea4z.ap-northeast-2.rds.amazonaws.com:3306/onyou-dev?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
-      username: onyou
-      password: ENC(uFp/gDGtH3l24RVEeK2/bTTzJ5k+hBvK)
-      driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://onyou.ccnmi4nbea4z.ap-northeast-2.rds.amazonaws.com:3306/onyou-dev?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
+    username: onyou
+    password: ENC(uFp/gDGtH3l24RVEeK2/bTTzJ5k+hBvK) #jasypt
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  #Batch
   batch:
     jdbc:
       initialize-schema: always
+  #JPA
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate.format_sql: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5Dialect
 
